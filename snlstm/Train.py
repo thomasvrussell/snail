@@ -1,4 +1,8 @@
 import numpy as np
+from warnings import simplefilter
+simplefilter(action='ignore', category=FutureWarning)
+import tensorflow
+tensorflow.compat.v1.logging.set_verbosity(tensorflow.compat.v1.logging.ERROR)
 from tensorflow.keras import Input, Model
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.models import Sequential

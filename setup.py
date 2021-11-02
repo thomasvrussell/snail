@@ -13,10 +13,9 @@ VERSION = '1.0.1'
 
 install_reqs = ['scipy>=1.5.2',
                 'astropy>=4.0.2',
-                'glob2>=0.7',
                 'scikit-learn>=0.23.2',
-                'tensorflow==1.14.0',
-                'pyphot==1.1']
+                'packaging>=20.4',
+                'extinction>=0.4.2']
 
 setup(name = NAME,
       version = VERSION,

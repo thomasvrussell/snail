@@ -1,0 +1,4 @@
+include snlstm/utils/helper/*.csv
+include snlstm/utils/helper/fpca_basis/*.csv
+include snlstm/utils/helper/fpca_basis/*.R
+include snlstm/utils/helper/transmission_curves/*.txt

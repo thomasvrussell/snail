@@ -1,4 +1,3 @@
-import sys
 import numpy as np
 from scipy.interpolate import interp1d
 from snlstm.utils.SpecFPCA import FPCA_Parameterize, FPCA_Reconstruct

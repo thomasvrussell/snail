@@ -1,6 +1,6 @@
 import numpy as np
 from math import sqrt, pi
-# functions copied from Kaepora.
+# NOTE: these are functions copied from Kaepora.
 
 def GSmooth(Wave, Flux, varFlux=None, vexp=0.002, nsig=5.0):
 

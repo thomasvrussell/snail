@@ -1,53 +1,51 @@
 import os
-import sys
-import glob2
-import pyphot
+import glob
+import contextlib
 import numpy as np
 import os.path as pa
-import astropy.units as u
 from astropy.table import Table
 
-FilterDICT = {}
-# * Load Standard System B & V
-lib = pyphot.get_library()
-FilterDICT['B(Standard)'] = lib['GROUND_JOHNSON_B']
-FilterDICT['V(Standard)'] = lib['GROUND_JOHNSON_V']
+# * Load transmission curves of popular filters (Natural System)
+#   (see ./helper/transmission_curves/*.txt)
 
-# * Load Natural Systems in filters described in ./helper/transmission_curves/*.txt
+TCDICT = {}
 HDIR = pa.join(pa.dirname(__file__), 'helper')
-for file in glob2.glob(HDIR + '/transmission_curves/*.txt'):
+for file in glob.glob(HDIR + '/transmission_curves/*.txt'):
     filtname = pa.basename(file)[:-4]
     ast = Table.read(file, format='ascii')
-    lamb_T, T = np.array(ast['col1']).astype(float), np.array(ast['col2']).astype(float)
-    pypfilt = pyphot.Filter(lamb_T, T, name=filtname, dtype='photon', unit='Angstrom')
-    FilterDICT[filtname] = pypfilt
-
-class HiddenPrints:
-    def __enter__(self):
-        self._original_stdout = sys.stdout
-        sys.stdout = open(os.devnull, 'w')
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        sys.stdout.close()
-        sys.stdout = self._original_stdout
+    lamb_T, T = np.array(ast['col1']).astype(float), np.array(ast['col2']).astype(float)   
+    TCDICT[filtname] = (lamb_T, T)
 
 # * Calculate Synthetic Photometry
 #   NOTE: make sure that input spectrum fully covers the transmission curve.
 def SynPhot(Wave, Flux, filtname, phot_system):
+    import pyphot
     assert phot_system in ['Vega', 'AB']
-    pypfilt = FilterDICT[filtname]
-    with HiddenPrints():
-        # NOTE pyphot v1.0: fluxes = pypfilt.get_flux(Wave*u.AA, Flux, axis=-1)
-        # NOTE pyphot v1.1: fluxes = pypfilt.get_flux(Wave, Flux, axis=-1)
+    assert (filtname in ['B(Standard)', 'V(Standard)']) or (filtname in TCDICT)
+
+    if filtname == 'B(Standard)':
+        pypfilt = pyphot.get_library()['GROUND_JOHNSON_B']
+    if filtname == 'V(Standard)':
+        pypfilt = pyphot.get_library()['GROUND_JOHNSON_V']
+    if filtname in TCDICT:
+        lamb_T, T = TCDICT[filtname]
+        pypfilt = pyphot.Filter(lamb_T, T, name=filtname, dtype='photon', unit='Angstrom')
+    
+    # NOTE pyphot v1.0: fluxes = pypfilt.get_flux(Wave*u.AA, Flux, axis=-1)
+    # NOTE pyphot v1.1: fluxes = pypfilt.get_flux(Wave, Flux, axis=-1)  
+    #      [v1.1 is the current version at https://github.com/mfouesneau/pyphot]
+    #      WARNING: Please install pyphot via git clone other than pip install.
+    with open(os.devnull, "w") as f, contextlib.redirect_stdout(f):
         fluxes = pypfilt.get_flux(Wave, Flux, axis=-1)
+
     if phot_system == 'Vega': 
         mag_sphot = -2.5 * np.log10(fluxes) - pypfilt.Vega_zero_mag
     if phot_system == 'AB': 
         mag_sphot = -2.5 * np.log10(fluxes) - pypfilt.AB_zero_mag
     return mag_sphot
 
-AstHsiao = Table.read(HDIR + '/HsiaoTemplate.csv', format='ascii.csv')
 # * Calculate Synthetic B-V offset due to too narrow wavelength coverage using Hsiao's template
+AstHsiao = Table.read(HDIR + '/HsiaoTemplate.csv', format='ascii.csv')
 def Calculate_BmVoffset(phase, redshift, WaveRange, filtname_B, filtname_V, phot_system):
 
     # ** read the full template spectrum

@@ -4,17 +4,16 @@ import os.path as pa
 from astropy.io import fits
 from astropy.table import Table
 
-# ** Load files in database directory
-DBDIR = pa.join(pa.dirname(pa.dirname(__file__)), 'database')
-assert pa.exists(DBDIR)
-Astab_SpecMa = Table.read(DBDIR + '/SpecMaster.csv', format='ascii.csv')
-Astab_ObjMa = Table.read(DBDIR + '/ObjectMaster.csv', format='ascii.csv')
-Astab_BVPhotMa = Table.read(DBDIR + '/BVPhotMaster.csv', format='ascii.csv')
-
 class AccessDB:
-    def __init__(self, SN_name):
-        
+    def __init__(self, SN_name, DBDir):
+
+        # ** load master catalogs in the database directory
+        self.DBDir = DBDir
+        Astab_ObjMa = Table.read(self.DBDir + '/ObjectMaster.csv', format='ascii.csv')
+        Astab_SpecMa = Table.read(self.DBDir + '/SpecMaster.csv', format='ascii.csv')
+
         if SN_name is not None:
+            # ** in the scope of the given SN
             self.SN_name = SN_name
             self.ObjRow = Astab_ObjMa[Astab_ObjMa['SN_name'] == SN_name][0]
             AstSpecMa_SN = Astab_SpecMa[Astab_SpecMa['SN_name'] == SN_name]
@@ -112,46 +111,55 @@ class AccessDB:
         
         return SID_LST
         
-    def Retrieve_BVPhot(self):
+    def Retrieve_BVphot(self):
         
         # ** Remarks
         #    1. 'B(Bessell, CT)' & 'V(Bessell, CT)' indicate photometry in standard system from color-term correction.
         #    2. 'B(Bessell, Scorr)' & 'V(Bessell, Scorr)' indicate photometry in standard system from S-correction.
-        #    3. others (e.g., 'B(kait2)') are photomety in natural system.
+        #    3. others (e.g., 'B(kait2)') indicate photometry in natural systems.
         
-        AstBVPhotMa_SN = None
-        if self.SN_name in Astab_BVPhotMa['SN_name']:
-            AstBVPhotMa_SN = Astab_BVPhotMa[Astab_BVPhotMa['SN_name'] == self.SN_name]
-            
-            pba, pbb = list(set(AstBVPhotMa_SN['Passband']))
+        AstBVp_SN = None
+        MDIR_BVp = pa.join(self.DBDir, 'BVPhotometry')
+        assert pa.exists(MDIR_BVp)    # make sure that the phot dataset exists
+        
+        CSV_BVp = pa.join(MDIR_BVp, '%s.BVphot.csv' %self.SN_name)
+        if pa.exists(CSV_BVp):
+            AstBVp_SN = Table.read(CSV_BVp, format='ascii.csv')
+
+            # ** present information about photometry systems
+            HDIR = pa.join(pa.dirname(__file__), 'utils', 'helper')
+            pba, pbb = list(set(AstBVp_SN['Passband']))
             if pba[0] == 'B': passband_B, passband_V = pba, pbb
             else: passband_B, passband_V = pbb, pba
-            
             if passband_B == 'B(Bessell, CT)':
                 print('>>> B band: standard system with color-term correction')
             elif passband_B == 'B(Bessell, Scorr)':
                 print('>>> B band: standard system with S-correction')
             else: 
                 print('>>> B band: natural system with filter %s' %passband_B)
-                print('    (find transmission curves at %s/utils/helper/transmission_curves/%s.txt)' \
-                    %(pa.dirname(__file__), passband_B))
-
+                print('    (find transmission curves at %s/transmission_curves/%s.txt)' \
+                    %(HDIR, passband_B))
             if passband_V == 'V(Bessell, CT)':
                 print('>>> V band: standard system with color-term correction')
             elif passband_V == 'V(Bessell, Scorr)':
                 print('>>> V band: standard system with S-correction')
             else: 
                 print('>>> V band: natural system with filter %s' %passband_V)
-                print('    (find transmission curves at %s/utils/helper/transmission_curves/%s.txt)' \
-                    %(pa.dirname(__file__), passband_V))
-
-        return AstBVPhotMa_SN
+                print('    (find transmission curves at %s/transmission_curves/%s.txt)' \
+                    %(HDIR, passband_V))
+        
+        return AstBVp_SN
     
     def Retrieve_SpecObs(self, Spec_ID, data_type, deredshift_rawspec=True):
         
-        AstSpec = None
+        assert Spec_ID in list(self.AstSpecMa_SN['Spec_ID'])
+        assert data_type in ['Raw', 'Homogenized', 'Corrected']
+        MDIR_SO = pa.join(self.DBDir, 'Observations')
+        assert pa.exists(MDIR_SO)    # make sure that the spec-obs dataset exists
+
         if data_type == 'Raw':
-            RawSpecFile = DBDIR + '/SpecData/Observations/Raw/%d.%s.ascii' %(Spec_ID, self.SN_name)
+            RawSpecFile = pa.join(MDIR_SO, 'Raw', '%d.%s.ascii' %(Spec_ID, self.SN_name))
+            assert pa.exists(RawSpecFile)
             AstSpec = Table.read(RawSpecFile, format='ascii.csv')  # 'wavelength', 'flux'
             SPECA_DICT = self.Spec_Attributes(Spec_ID=Spec_ID)
             DRT = SPECA_DICT['RawSpec_DeRedshifted_Type']
@@ -174,29 +182,32 @@ class AccessDB:
                 print('WARNING: No DeRedshifting performed on the Raw spectrum !')
         
         if data_type == 'Homogenized':
-            HomSpecFile = DBDIR + '/SpecData/Observations/Homogenized/%d.%s.st.ascii' %(Spec_ID, self.SN_name)
-            AstSpec = Table.read(HomSpecFile, format='ascii.csv')  # 'RFwavelength', 'flux'
-            AstSpec['RFwavelength'].name = 'wavelength'
+            HomoSpecFile = pa.join(MDIR_SO, 'Homogenized', '%d.%s.st.ascii' %(Spec_ID, self.SN_name))
+            assert pa.exists(HomoSpecFile)
+            AstSpec = Table.read(HomoSpecFile, format='ascii.csv')  # 'RFwavelength', 'flux'
+            AstSpec['RFwavelength'].name = 'wavelength'  
         
         if data_type == 'Corrected':
-            CorrSpecFile = DBDIR + '/SpecData/Observations/Corrected/%d.%s.stcal.ascii' %(Spec_ID, self.SN_name)
+            CorrSpecFile = pa.join(MDIR_SO, 'Corrected', '%d.%s.stcal.ascii' %(Spec_ID, self.SN_name))
+            assert pa.exists(CorrSpecFile)
             AstSpec = Table.read(CorrSpecFile, format='ascii.csv')  # 'RFwavelength', 'flux'
             AstSpec['RFwavelength'].name = 'wavelength'
-            
-        if AstSpec is None:
-            sys.exit('ERROR: Please use valid Spec_ID and data_type (Raw / Homogenized / Corrected) !')
-        
+
         return AstSpec
     
     def Retrieve_SpecTemplate(self, evaluate_accuracy=False):
         
+        # ** define template phase & wavelength resolution
         OpPcadence = 1/8.0
         OpPrange = (-15.00, 33.01)
         OpPHA = np.arange(OpPrange[0], OpPrange[1], OpPcadence)
-        
         RCut0, RCut1 = 3800, 7200
         WAVE = np.arange(RCut0, RCut1, 2)
-        FITS_TEMP = DBDIR + '/SpecData/Templates/ESurface-%s.fits' %self.SN_name
+        
+        MDIR_ST = pa.join(self.DBDir, 'Templates')
+        assert pa.exists(MDIR_ST)   # make sure that the spec-temp dataset exists
+        
+        FITS_TEMP = pa.join(MDIR_ST, 'ESurface-%s.fits' %self.SN_name)
         LstmData = fits.getdata(FITS_TEMP, ext=0).T
 
         COL0, COL1, COL2, COL3 = [], [], [], []
@@ -208,7 +219,8 @@ class AccessDB:
         AstSpec = Table([COL0, COL1, COL2, COL3], names=['index', 'phase', 'wavelength', 'flux'])
 
         if evaluate_accuracy:
-            AstTRec = Table.read(DBDIR + '/SpecData/Templates/TrainingRecord.csv', format='ascii.csv')
+            CSV_TRec = pa.join(MDIR_ST, 'TrainingRecord.csv')
+            AstTRec = Table.read(CSV_TRec, format='ascii.csv')
             AstTRec_SN = AstTRec[AstTRec['SN_name'] == self.SN_name]
             AstTRec_SN = AstTRec_SN[np.argsort(AstTRec_SN['Phase'])]
             print('SN name | Obs. Spec_ID | Obs. Phase | Trained | Template MAPE error')
