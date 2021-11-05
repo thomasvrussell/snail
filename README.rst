@@ -38,6 +38,11 @@ Additional Dependencies
 Download Archival Datasets
 -----------
 
+snlstm allows users to access to the related archival datasets including 
+
+.. [*] the spectral-observation dataset (enclosed in the file archival_spec_observations.tar.gz) is comprised of 3091 observed spectra from 361 SNe Ia. 
+
+
 
 
 
