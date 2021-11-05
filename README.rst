@@ -53,7 +53,7 @@ Quick start guide
 
 We prepared several jupyter notebooks as quick tutorials of our package.
 
-- `1-Access_to_Archival_ObservationData.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_: 
+- `1-Access_to_Archival_ObservationData.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_: this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
 
 - `2-Access_to_Archival_TemplateData.ipynb </snlstm/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_: 
 
@@ -62,7 +62,7 @@ We prepared several jupyter notebooks as quick tutorials of our package.
 - `4-LSTM_Predictions_on_New_SN.ipynb </snlstm/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: 
 
 
-
+One can access to the spectral-observation dataset that is composed of 3091 observed spectra from 361 SNe Ia (mainly from CfA, BSNIP, CSP and Supernova Polarimetry Program).
 Common issues
 -----------
 
