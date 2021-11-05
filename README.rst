@@ -40,7 +40,7 @@ Download Archival Datasets
 
 snlstm allows users to access to the related archival datasets including 
 
-.. [#] The spectral-observation dataset: it is comprised of 3091 observed spectra from 361 SNe Ia.
+.. [#] **The spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia.
 
 .. [#] The spectral-template dataset: it includes 361 spectral templates, each of them (covering -15 to +33d with wavelength from 3800 to 7200 A) was generated from the available spectroscopic observations of an individual SN via a LSTM neural network model.
 
