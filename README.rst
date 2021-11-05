@@ -52,9 +52,7 @@ Quick start guide
 -----------
 
 We prepared several jupyter notebooks as quick tutorials of our package. 
-
-[this subsubtext](snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb)
-
+Source file link `main.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_.
 
 
 
