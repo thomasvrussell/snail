@@ -61,7 +61,12 @@ We prepared several jupyter notebooks as quick tutorials of our package.
 
 - `4-LSTM_Predictions_on_New_SN.ipynb </snlstm/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: the notebook provides a guide for users who want apply our LSTM model on very limited spectroscopic data of newly discovered SNe Ia. 
 
-Common issues
+Publications 
+-----------
+
+- SN2018agk: A prototypical Type Ia Supernova with a smooth power-law rise in Kepler (K2), Qinan Wang, Armin Rest, et al. (2021)
+
+Common Issues
 -----------
 
 TBD
