@@ -40,7 +40,7 @@ Download Archival Datasets
 
 snlstm allows users to access to the following archival datasets 
 
-.. [#] **A spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia.
+.. [#] **A spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia, largely contributed from CfA (Blondin et al. 2012), BSNIP (Silverman et al. 2012), CSP (Folatelli et al. 2013) and Supernova Polarimetry Program (Wang & Wheeler 2008; Cikota et al. 2019a; Yang et al. 2020).
 
 .. [#] **A spectral-template dataset** : it includes 361 spectral templates, each of them (covering -15 to +33d with wavelength from 3800 to 7200 A) was generated from the available spectroscopic observations of an individual SN via a LSTM neural network model.
 
@@ -55,14 +55,12 @@ We prepared several jupyter notebooks as quick tutorials of our package.
 
 - `1-Access_to_Archival_ObservationData.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_: this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
 
-- `2-Access_to_Archival_TemplateData.ipynb </snlstm/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_: 
+- `2-Access_to_Archival_TemplateData.ipynb </snlstm/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_: one can obtain the LSTM generated spectral time sequences in **the spectral-template dataset** following this notebook.
 
-- `3-SpecData_Process_Example.ipynb </snlstm/notebooks/3-SpecData_Process_Example.ipynb>`_: 
+- `3-SpecData_Process_Example.ipynb </snlstm/notebooks/3-SpecData_Process_Example.ipynb>`_: the notebook demonstrate the pre-processing of the spectroscopic data described in our paper, including smooth, rebinning, lines removal and color calibration, etc.
 
-- `4-LSTM_Predictions_on_New_SN.ipynb </snlstm/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: 
+- `4-LSTM_Predictions_on_New_SN.ipynb </snlstm/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: the notebook provides a guide for users who want apply our LSTM model on very limited spectroscopic data of newly discovered SNe Ia. 
 
-
-One can access to the spectral-observation dataset that is composed of 3091 observed spectra from 361 SNe Ia (mainly from CfA, BSNIP, CSP and Supernova Polarimetry Program).
 Common issues
 -----------
 
