@@ -1,8 +1,18 @@
 Package Description
 -------------------
-snlstm is a data-driven model for spectroscopic studies of type Ia supernovae. The LSTM-based algorithm enables the construction of spectral sequences from observations with limited time coverage. 
 
-This companion repository contains the code associated to *Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, in press)*.
+The difficulties in acquiring spectroscopic data have been a major challenge for supernova surveys. snlstm is a data-driven method based on LSTM neural networks for spectroscopic studies of type Ia supernovae. We trained a LSTM model based on a dataset includes 3091 spectra from 361 individual SNe Ia. The model enables the construction of spectral sequences from spectroscopic observations with limited time coverage. This repository is associated to the paper *Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*.
+
+
+
+
+and for future time-domain surveys. 
+The empolyed dataset includes 3091 spectra from 361 individual SNe Ia. 
+Although the real spectroscopic observations of SNe Ia (in most cases) are sparsely and irregularly time-sampled, the 
+Spectroscopic observations of SNe Ia are sparsely and irregularly time-sampled. 
+
+This method os proposed by the paper *Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*.
+This companion repository contains the code associated to 
 
 .. image:: https://img.shields.io/badge/License-MIT-red.svg
     :target: https://opensource.org/licenses/MIT

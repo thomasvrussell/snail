@@ -32,11 +32,12 @@ def SynPhot(Wave, Flux, filtname, phot_system):
         pypfilt = pyphot.Filter(lamb_T, T, name=filtname, dtype='photon', unit='Angstrom')
     
     # NOTE pyphot v1.0: fluxes = pypfilt.get_flux(Wave*u.AA, Flux, axis=-1)
-    # NOTE pyphot v1.1: fluxes = pypfilt.get_flux(Wave, Flux, axis=-1)  
+    # NOTE pyphot v1.1: fluxes = pypfilt.get_flux(Wave, Flux, axis=-1)
     #      [v1.1 is the current version at https://github.com/mfouesneau/pyphot]
     #      WARNING: Please install pyphot via git clone other than pip install.
     with open(os.devnull, "w") as f, contextlib.redirect_stdout(f):
         fluxes = pypfilt.get_flux(Wave, Flux, axis=-1)
+        if not isinstance(fluxes, float): fluxes = fluxes.value
 
     if phot_system == 'Vega': 
         mag_sphot = -2.5 * np.log10(fluxes) - pypfilt.Vega_zero_mag
