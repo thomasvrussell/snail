@@ -22,9 +22,9 @@ One can install any desired version of snlstm from Github `<https://github.com/t
 Additional Dependencies
 -----------
 
-- `R <https://www.r-project.org>`_: R programming language is required for FPCA parameterization. To compress the high dimensions. `fpca <https://CRAN.R-project.org/package=fpca>`_ ::
+- `R <https://www.r-project.org>`_: In order to reduce the data dimension, we use Functional Principal Component Analysis (FPCA) to parameterize supernova spectra before feeding them into neural networks. The FPCA parameterization and FPCA reconstruction are achieved by the `fpca <https://CRAN.R-project.org/package=fpca>`_ package in R programming language. One can install them, e.g., on CentOS ::
 
-    yum install R
+    $ yum install R
     R > install.packages("fpca")
 
 - `tensorflow <https://github.com/tensorflow/tensorflow>`_: tensorflow is required to make the spectral predictions with a given LSTM model or training or new model. The default LSTM model in this repository is trained with tensorflow 1.14.0. We recommend users to install the same version via conda: ::
