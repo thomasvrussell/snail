@@ -19,7 +19,7 @@ One can install any desired version of snlstm from the Github repository `<https
 
     python setup.py install
 
-Additional Dependencies
+Additional dependencies
 -----------
 
 - `R <https://www.r-project.org>`_: In order to reduce the data dimension, we use Functional Principal Component Analysis (FPCA) to parameterize supernova spectra before feeding them into neural networks. The FPCA parameterization and FPCA reconstruction are achieved by the `fpca <https://CRAN.R-project.org/package=fpca>`_ package in R programming language. One can install them, e.g., on CentOS ::
@@ -35,7 +35,7 @@ Additional Dependencies
 
     pip install git+https://github.com/mfouesneau/pyphot
 
-Download Archival Datasets
+Download archival datasets
 -----------
 
 snlstm allows users to access to the following archival datasets 
@@ -61,19 +61,19 @@ We prepared several jupyter notebooks as quick tutorials of our package.
 
 - `4-LSTM_Predictions_on_New_SN.ipynb </snlstm/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: the notebook provides a guide for users who want apply our LSTM model on very limited spectroscopic data of newly discovered SNe Ia. 
 
-Publications Use Our Method
+Publications use our method
 -----------
 
 - *SN2018agk: A prototypical Type Ia Supernova with a smooth power-law rise in Kepler (K2) (Qinan Wang, Armin Rest, et al., 2021, ApJ)*.
 
-Todo List
+Todo list
 -----------
 
 - Support spectral sequence with arbitrary timesteps as input. (current model only accepts spectral pair inputs.)
 
 - Support more flexible wavelength range for input spectra. (current model is trained on spectra with uniform wavelength range from 3800 to 7200 A.)
 
-Common Issues
+Common issues
 -----------
 
 TBD
