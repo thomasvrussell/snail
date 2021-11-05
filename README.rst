@@ -51,9 +51,15 @@ The datasets can be found on `zenodo <https://zenodo.org>`_, one can download th
 Quick start guide
 -----------
 
-We prepared several jupyter notebooks as quick tutorials of our package. 
-Source file link `main.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_.
+We prepared several jupyter notebooks as quick tutorials of our package.
 
+- `1-Access_to_Archival_ObservationData.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_: 
+
+- `2-Access_to_Archival_TemplateData.ipynb </snlstm/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_: 
+
+- `3-SpecData_Process_Example.ipynb </snlstm/notebooks/3-SpecData_Process_Example.ipynb>`_: 
+
+- `4-LSTM_Predictions_on_New_SN.ipynb </snlstm/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: 
 
 
 
