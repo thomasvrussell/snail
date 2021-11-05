@@ -40,11 +40,11 @@ Download Archival Datasets
 
 snlstm allows users to access to the following archival datasets 
 
-.. [#] **The spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia.
+.. [#] **A spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia.
 
-.. [#] **The spectral-template dataset** : it includes 361 spectral templates, each of them (covering -15 to +33d with wavelength from 3800 to 7200 A) was generated from the available spectroscopic observations of an individual SN via a LSTM neural network model.
+.. [#] **A spectral-template dataset** : it includes 361 spectral templates, each of them (covering -15 to +33d with wavelength from 3800 to 7200 A) was generated from the available spectroscopic observations of an individual SN via a LSTM neural network model.
 
-.. [#] **The auxiliary photometry dataset** : it provides the B & V light curves of these SNe (in total, 196 available), that were used to calibrate the synthetic B-V color of the observed spectra.
+.. [#] **An auxiliary photometry dataset** : it provides the B & V light curves of these SNe (in total, 196 available), that were used to calibrate the synthetic B-V color of the observed spectra.
 
 The datasets can be found on `zenodo <https://zenodo.org>`_, one can download the related files (~ 2GB) through the zendo page: `<https://doi.org/10.5281/zenodo.5637790>`_.
 
@@ -79,24 +79,5 @@ information:
 
 Citing
 ------
-Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, in press)
 
-
-
-
-
-
-
-
-
-
-a data-driven method based on LSTM neural networks for spectroscopic studies of type Ia supernovae. 
-We trained a LSTM model based on a dataset includes 3091 spectra from 361 individual SNe Ia. The model enables the construction of spectral sequences from spectroscopic observations with limited time coverage. This repository is associated to the paper *Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*. 
-
-and for future time-domain surveys. 
-The empolyed dataset includes 3091 spectra from 361 individual SNe Ia. 
-Although the real spectroscopic observations of SNe Ia (in most cases) are sparsely and irregularly time-sampled, the 
-Spectroscopic observations of SNe Ia are sparsely and irregularly time-sampled. 
-
-This method os proposed by the paper *Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*.
-This companion repository contains the code associated to 
+*Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*.
