@@ -11,7 +11,6 @@ The difficulties in acquiring spectroscopic data have been a major challenge for
 .. image:: https://img.shields.io/badge/python-3.7-blue.svg
     :target: https://www.python.org/downloads/release/python-370/
 
-
 Installation
 -----------
 One can install any desired version of snlstm from Github `<https://github.com/thomasvrussell/snlstm>`_: ::
