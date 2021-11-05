@@ -15,7 +15,7 @@ This repository is associated to the paper *Spectroscopic Studies of Type Ia Sup
 
 Installation
 -----------
-One can install any desired version of snlstm from Github `<https://github.com/thomasvrussell/snlstm>`_: ::
+One can install any desired version of snlstm from the Github repository `<https://github.com/thomasvrussell/snlstm>`_: ::
 
     python setup.py install
 
@@ -27,17 +27,21 @@ Additional Dependencies
     $ yum install R
     R > install.packages("fpca")
 
-- `tensorflow <https://github.com/tensorflow/tensorflow>`_: tensorflow is required to make the spectral predictions with a given LSTM model or training or new model. The default LSTM model in this repository is trained with tensorflow 1.14.0. We recommend users to install the same version via conda: ::
+- `tensorflow <https://github.com/tensorflow/tensorflow>`_: tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential incompatiability issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
 
     conda install -c anaconda tensorflow=1.14.0
 
-- `pyphot <https://github.com/mfouesneau/pyphot>`_: pyphot is a useful package to compute synthetic photometry on a spectrum with given filter. We used it to calibrate the spectral color. We recommend users to install the latest Github version (pyphot 1.1).
+- `pyphot <https://github.com/mfouesneau/pyphot>`_ (optional): pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the latest version from Github (pyphot 1.1) ::
 
     pip install git+https://github.com/mfouesneau/pyphot
 
-
 Downloading archival datasets
 -----------
+
+
+
+
+
 
 The archival datasets are available on `zenodo <https://zenodo.org>`_, please download via the link https://doi.org/10.5281/zenodo.5637790
 
