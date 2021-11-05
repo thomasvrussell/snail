@@ -14,7 +14,7 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
 
 Installation
 -----------
-One can install any desired version of snlstm from the Github repository `<https://github.com/thomasvrussell/snlstm>`_: ::
+One can install any desired version of snlstm from Github `<https://github.com/thomasvrussell/snlstm>`_: ::
 
     python setup.py install
 
