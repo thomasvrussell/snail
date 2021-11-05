@@ -64,16 +64,14 @@ We prepared several jupyter notebooks as quick tutorials of our package.
 Publications Use Our Method
 -----------
 
-- *SN2018agk: A prototypical Type Ia Supernova with a smooth power-law rise in Kepler (K2) (Qinan Wang, Armin Rest, et al., 2021, ApJ)
+- *SN2018agk: A prototypical Type Ia Supernova with a smooth power-law rise in Kepler (K2) (Qinan Wang, Armin Rest, et al., 2021, ApJ)*.
 
-TODO List
+Todo List
 -----------
 
+- Support spectral sequence with arbitrary timesteps as input. (current model only accepts spectral pair inputs.)
 
-
-
-
-
+- Support more flexible wavelength range for input spectra. (current model is trained on spectra with uniform wavelength range from 3800 to 7200 A.)
 
 Common Issues
 -----------
