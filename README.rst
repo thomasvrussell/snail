@@ -8,7 +8,7 @@ The difficulties in acquiring spectroscopic data have been a major challenge for
     :alt: 1.1
 .. image:: https://img.shields.io/badge/License-MIT-red.svg
     :target: https://opensource.org/licenses/MIT
-.. image:: https://img.shields.io/badge/python-3.7-blue.svg
+.. image:: https://img.shields.io/badge/python-3.7-green.svg
     :target: https://www.python.org/downloads/release/python-370/
 
 Installation
