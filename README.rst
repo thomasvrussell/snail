@@ -51,9 +51,11 @@ The datasets can be found on `zenodo <https://zenodo.org>`_, one can download th
 Quick start guide
 -----------
 
-We prepared several notebooks as a quick tutorial of our package. 
+We prepared several jupyter notebooks as quick tutorials of our package. 
 
 [this subsubtext](snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb)
+
+
 
 
 
