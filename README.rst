@@ -40,11 +40,24 @@ Download Archival Datasets
 
 snlstm allows users to access to the related archival datasets including 
 
-.. [*] the spectral-observation dataset (enclosed in the file archival_spec_observations.tar.gz) is comprised of 3091 observed spectra from 361 SNe Ia. 
+.. [#] The spectral-observation dataset: it is comprised of 3091 observed spectra from 361 SNe Ia.
+
+.. [#] The spectral-template dataset: it includes 361 spectral templates, each of them (covering -15 to +33d with wavelength from 3800 to 7200 A) was generated from the available spectroscopic observations of an individual SN via a LSTM neural network model.
+
+.. [#] The auxiliary photometry dataset: it provides the B & V light curves of these SNe (in total, 196 available), which were used to calibrate the synthetic B-V color of the observed spectra.
 
 
 
 
+
+
+
+
+ (enclosed in the file archival_spec_templates.tar.gz) includes 361 spectral templates, each of them (covering -15 to +33d with wavelength from 3800 to 7200 A) was generated from the limited spectroscopic observations of an individual SN via a LSTM neural network model.
+
+The auxiliary photometry dataset (enclosed in the file archival_phot_observations.tar.gz) provides the B & V light curves of these SNe (in total, 196 available SNe Ia), that were used to calibrate the synthetic B-V color of the observed spectra.
+
+In additional, the two master catalogs give the detailed information about the 361 SNe and their spectroscopic observations, respectively. 
 
 
 The archival datasets are available on `zenodo <https://zenodo.org>`_, please download via the link https://doi.org/10.5281/zenodo.5637790
