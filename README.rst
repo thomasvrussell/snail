@@ -51,7 +51,7 @@ The datasets can be found on `zenodo <https://zenodo.org>`_, one can download th
 Quick start guide
 -----------
 
-We prepared several jupyter notebooks as quick tutorials of our package.
+We prepared several jupyter notebooks as quick tutorials to use our package in a friendly way.
 
 - `1-Access_to_Archival_ObservationData.ipynb </snlstm/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_: this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
 
