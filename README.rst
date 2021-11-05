@@ -63,7 +63,7 @@ We prepared several jupyter notebooks as quick tutorials to use our package in a
 Publications use our method
 -----------
 
-- *SN2018agk: A prototypical Type Ia Supernova with a smooth power-law rise in Kepler (K2) (Qinan Wang, Armin Rest, et al., 2021, ApJ)*.
+- *SN2018agk: A prototypical Type Ia Supernova with a smooth power-law rise in Kepler (K2) (Qinan Wang, et al., 2021, ApJ)*.
 
 Todo list
 -----------
