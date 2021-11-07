@@ -21,16 +21,16 @@ One can install any desired version of snlstm from Github `<https://github.com/t
 Additional dependencies
 -----------
 
-- `R <https://www.r-project.org>`_: In order to reduce the data dimension, we use Functional Principal Component Analysis (FPCA) to parameterize supernova spectra before feeding them into neural networks. The FPCA parameterization and FPCA reconstruction are achieved by the `fpca <https://CRAN.R-project.org/package=fpca>`_ package in R programming language. One can install them, e.g., on CentOS ::
+- `R <https://www.r-project.org>`_ : In order to reduce the data dimension, we use Functional Principal Component Analysis (FPCA) to parameterize supernova spectra before feeding them into neural networks. The FPCA parameterization and FPCA reconstruction are achieved by the `fpca <https://CRAN.R-project.org/package=fpca>`_ package in R programming language. One can install them, e.g., on CentOS ::
 
     $ yum install R
     R > install.packages("fpca")
 
-- `TensorFlow <https://github.com/tensorflow/tensorflow>`_: tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential incompatiability issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
+- `TensorFlow <https://github.com/tensorflow/tensorflow>`_ : tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential incompatiability issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
 
     conda install -c anaconda tensorflow=1.14.0
 
-- `PYPHOT <https://github.com/mfouesneau/pyphot>`_ (optional): pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the latest version from Github (pyphot 1.1) ::
+- `PYPHOT <https://github.com/mfouesneau/pyphot>`_ (optional) : pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the latest version from Github (pyphot 1.1) ::
 
     pip install git+https://github.com/mfouesneau/pyphot
 
@@ -52,15 +52,15 @@ Quick start guide
 
 We prepared several jupyter notebooks as quick tutorials to use our package in a friendly way.
 
-.. [*] `1-Access_to_Archival_ObservationData.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_: this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
+.. [*] `1-Access_to_Archival_ObservationData.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_ : this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
 
-.. [*] `2-Access_to_Archival_TemplateData.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_: one can obtain the LSTM generated spectral time sequences in **the spectral-template dataset** following this notebook.
+.. [*] `2-Access_to_Archival_TemplateData.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_ : one can obtain the LSTM generated spectral time sequences in **the spectral-template dataset** following this notebook.
 
-.. [*] `3-SpecData_Process_Example.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/3-SpecData_Process_Example.ipynb>`_: the notebook demonstrates the pre-processing of the spectroscopic data described in our paper, including smooth, rebinning, lines removal and color calibration, etc.
+.. [*] `3-SpecData_Process_Example.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/3-SpecData_Process_Example.ipynb>`_ : the notebook demonstrates the pre-processing of the spectroscopic data described in our paper, including smooth, rebinning, lines removal and color calibration, etc.
 
 .. [*] `4-LSTM_Predictions_on_New_SN.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_: the notebook provides a guide for users who want apply our LSTM model on very limited spectroscopic data of newly discovered SNe Ia. In this notebook, we use SN 2016coj, a well-observed SN Ia from the latest BSNIP data release, as an example.
 
-.. [*] `5-LSTM_Estimate_Spectral_Phase.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/5-LSTM_Estimate_Spectral_Phase.ipynb>`_: our neural network is trained based on the spectral data with known phases, however, it is still possible to apply the model to the spectra without any prior phase knownlege. The idea is wrong given phase of input spectrum will degrade the predictive accuracy of our method, that is to say, we can find the best-fit phase of input spectrum by minimizing the accuacy of prediction for itself. This notebook is to show how to estimate spectral phase via our model. For the case of SN 2016coj in the notebook, the estimation errors are around 0.5 - 2.0d.
+.. [*] `5-LSTM_Estimate_Spectral_Phase.ipynb <https://github.com/thomasvrussell/snlstm/blob/main/notebooks/5-LSTM_Estimate_Spectral_Phase.ipynb>`_ : our neural network is trained based on the spectral data with known phases, however, it is still possible to apply the model to the spectra without any prior phase knownlege. The idea is wrong given phase of input spectrum will degrade the predictive accuracy of our method, that is to say, we can find the best-fit phase of input spectrum by minimizing the accuacy of prediction for itself. This notebook is to show how to estimate spectral phase via our model. For the case of SN 2016coj in the notebook, the estimation errors are around 0.5 - 2.0d.
 
 Publications use our method
 -----------
