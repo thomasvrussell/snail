@@ -45,7 +45,7 @@ snlstm allows users to access to the following archival datasets
 
 .. [#] **An auxiliary photometry dataset** : it provides the B & V light curves of these SNe (in total, 196 available), that were used to calibrate the synthetic B-V color of the observed spectra.
 
-These datasets are stored on `Zenodo platform <https://zenodo.org>`_, one can download the related files (~ 2GB) through the Zenodo page: `<https://doi.org/10.5281/zenodo.5637790>`_.
+These datasets are stored on `Zenodo <https://zenodo.org>`_ platform, one can download the related files (~ 2GB) through the Zenodo page: `<https://doi.org/10.5281/zenodo.5637790>`_.
 
 Quick start guide
 -----------
