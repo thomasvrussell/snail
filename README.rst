@@ -26,11 +26,11 @@ Additional dependencies
     $ yum install R
     R > install.packages("fpca")
 
-- `tensorflow <https://github.com/tensorflow/tensorflow>`_: tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential incompatiability issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
+- `TensorFlow <https://github.com/tensorflow/tensorflow>`_: tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential incompatiability issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
 
     conda install -c anaconda tensorflow=1.14.0
 
-- `pyphot <https://github.com/mfouesneau/pyphot>`_ (optional): pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the latest version from Github (pyphot 1.1) ::
+- `PYPHOT <https://github.com/mfouesneau/pyphot>`_ (optional): pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the latest version from Github (pyphot 1.1) ::
 
     pip install git+https://github.com/mfouesneau/pyphot
 
