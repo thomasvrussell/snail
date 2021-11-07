@@ -5,7 +5,7 @@ from snlstm.utils.GPLightCurve import GP_Interpolator
 class FitSingleSpecPhase:
     @staticmethod
     def FSSP(Wave_in, Flux_in, lstm_model, PATH_R, num_forward_pass=64, FAKE_MAPE_ERROR=0.2):
-        # ** NOTE: this function only support single spectrum as input
+        # ** NOTE: this function only support a single spectrum as input.
 
         def auto_predict(phase_hypo):
             PredSpecDict = SNLSTM_Predict.SLP(Wave_in1=Wave_in, Flux_in1=Flux_in, phase_in1=phase_hypo, \
