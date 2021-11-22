@@ -20,8 +20,10 @@ class SNLSTM_Predict:
 
         # ** fpca parameterization
         FPCA_PARAM_o = FPCA_Parameterize(WAVE, FLUX_o, PATH_R)
-        FPCA_PARAM_t = FPCA_Parameterize(WAVE, FLUX_t, PATH_R)
-
+        if np.sum(~np.equal(FLUX_o, FLUX_t)) > 0:
+            FPCA_PARAM_t = FPCA_Parameterize(WAVE, FLUX_t, PATH_R)
+        else: FPCA_PARAM_t = FPCA_PARAM_o.copy()
+        
         # ** construct LSTM input
         XDATA = []
         phase_o, phase_t = phase_in1, phase_in2
