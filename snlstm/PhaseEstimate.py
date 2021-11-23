@@ -1,5 +1,6 @@
 import numpy as np
-from snlstm.Predict import SNLSTM_Predict
+from snlstm.Predict import SNLSTM_Predict_Deep
+from snlstm.utils.SpecFPCA import FPCA_Parameterize
 from snlstm.utils.GPLightCurve import GP_Interpolator
 
 class FitSingleSpecPhase:
@@ -7,10 +8,21 @@ class FitSingleSpecPhase:
     def FSSP(Wave_in, Flux_in, lstm_model, PATH_R, num_forward_pass=64, FAKE_MAPE_ERROR=0.2):
         # ** NOTE: this function only support a single spectrum as input.
 
+        # ** verify inputs (standard wavelength and normalized flux)
+        RCut0, RCut1 = 3800, 7200
+        WAVE = np.arange(RCut0, RCut1, 2)
+        assert np.allclose(Wave_in, WAVE)
+        assert np.allclose(np.mean(Flux_in), 1.0)
+
+        # ** fpca parameterization
+        FPCA_PARAM = FPCA_Parameterize(WAVE, Flux_in, PATH_R)
+
+        # ** define auto-prediction function
         def auto_predict(phase_hypo):
-            PredSpecDict = SNLSTM_Predict.SLP(Wave_in1=Wave_in, Flux_in1=Flux_in, phase_in1=phase_hypo, \
-                Wave_in2=Wave_in, Flux_in2=Flux_in, phase_in2=phase_hypo, phases_out=np.array([phase_hypo]), \
-                lstm_model=lstm_model, PATH_R=PATH_R, num_forward_pass=num_forward_pass)
+            PredSpecDict = SNLSTM_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM, phase_o=phase_hypo, \
+                                                   FPCA_PARAM_t=FPCA_PARAM, phase_t=phase_hypo, \
+                                                   phases_out=np.array([phase_hypo]), lstm_model=lstm_model, \
+                                                   num_forward_pass=num_forward_pass)
             Flstm = PredSpecDict[phase_hypo]['flux']
             mape = 100.0*np.mean(np.abs((Flux_in-Flstm)/np.clip(np.abs(Flux_in), a_min=1e-7, a_max=None)), axis=-1)
             return mape

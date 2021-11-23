@@ -10,6 +10,6 @@ Remarks on Internal Packages Imports:
 
 from .AccessArchivalData import AccessDB
 from .SpecProc import HomogenizeSpec, CorrectSpec
-from .Predict import SNLSTM_Predict
+from .Predict import SNLSTM_Predict_Deep, SNLSTM_Predict
 from .PhaseEstimate import FitSingleSpecPhase
 from .Train import SNLSTM_Train

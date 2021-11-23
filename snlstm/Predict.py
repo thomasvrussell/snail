@@ -2,31 +2,16 @@ import numpy as np
 from scipy.interpolate import interp1d
 from snlstm.utils.SpecFPCA import FPCA_Parameterize, FPCA_Reconstruct
 
-class SNLSTM_Predict:
+class SNLSTM_Predict_Deep:
     @staticmethod
-    def SLP(Wave_in1, Flux_in1, phase_in1, Wave_in2, Flux_in2, phase_in2, \
-        phases_out, lstm_model, PATH_R, num_forward_pass=64):
+    def SPD(FPCA_PARAM_o, phase_o, FPCA_PARAM_t, phase_t, phases_out, lstm_model, num_forward_pass=64):
 
-        # ** verify inputs (standard wavelength and normalized flux)
         RCut0, RCut1 = 3800, 7200
         WAVE = np.arange(RCut0, RCut1, 2)
-        assert np.allclose(Wave_in1, WAVE)
-        assert np.allclose(Wave_in2, WAVE)
-        assert np.allclose(np.mean(Flux_in1), 1.0)
-        assert np.allclose(np.mean(Flux_in2), 1.0)
-        assert phase_in1 <= phase_in2
-        assert isinstance(phases_out, np.ndarray)
-        FLUX_o, FLUX_t = Flux_in1.copy(), Flux_in2.copy()
 
-        # ** fpca parameterization
-        FPCA_PARAM_o = FPCA_Parameterize(WAVE, FLUX_o, PATH_R)
-        if np.sum(~np.equal(FLUX_o, FLUX_t)) > 0:
-            FPCA_PARAM_t = FPCA_Parameterize(WAVE, FLUX_t, PATH_R)
-        else: FPCA_PARAM_t = FPCA_PARAM_o.copy()
-        
         # ** construct LSTM input
         XDATA = []
-        phase_o, phase_t = phase_in1, phase_in2
+        #phase_o, phase_t = phase_in1, phase_in2
         cff_o = np.array(FPCA_PARAM_o).flatten()
         cff_t = np.array(FPCA_PARAM_t).flatten()
         for phase_d in phases_out:
@@ -69,4 +54,34 @@ class SNLSTM_Predict:
                                      'flux': ESurface[idx], \
                                      'fluxerr': np.sqrt(VSurface[idx])}
 
+        return PredSpecDict
+
+class SNLSTM_Predict:
+    @staticmethod
+    def SLP(Wave_in1, Flux_in1, phase_in1, Wave_in2, Flux_in2, phase_in2, \
+        phases_out, lstm_model, PATH_R, num_forward_pass=64):
+
+        # ** verify inputs (standard wavelength and normalized flux)
+        RCut0, RCut1 = 3800, 7200
+        WAVE = np.arange(RCut0, RCut1, 2)
+        assert np.allclose(Wave_in1, WAVE)
+        assert np.allclose(Wave_in2, WAVE)
+        assert np.allclose(np.mean(Flux_in1), 1.0)
+        assert np.allclose(np.mean(Flux_in2), 1.0)
+        assert phase_in1 <= phase_in2
+        assert isinstance(phases_out, np.ndarray)
+        FLUX_o, FLUX_t = Flux_in1.copy(), Flux_in2.copy()
+
+        # ** fpca parameterization
+        FPCA_PARAM_o = FPCA_Parameterize(WAVE, FLUX_o, PATH_R)
+        if np.sum(~np.equal(FLUX_o, FLUX_t)) > 0:
+            FPCA_PARAM_t = FPCA_Parameterize(WAVE, FLUX_t, PATH_R)
+        else: FPCA_PARAM_t = FPCA_PARAM_o.copy()
+
+        # ** predict
+        PredSpecDict = SNLSTM_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_in1, \
+                                               FPCA_PARAM_t=FPCA_PARAM_t, phase_t=phase_in2, \
+                                               phases_out=phases_out, lstm_model=lstm_model, \
+                                               num_forward_pass=num_forward_pass)
+        
         return PredSpecDict
