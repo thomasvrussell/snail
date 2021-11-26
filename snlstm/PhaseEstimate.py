@@ -5,7 +5,7 @@ from snlstm.utils.GPLightCurve import GP_Interpolator
 
 class FitSingleSpecPhase:
     @staticmethod
-    def FSSP(Wave_in, Flux_in, lstm_model, PATH_R, num_forward_pass=64, FAKE_MAPE_ERROR=0.2):
+    def FSSP(Wave_in, Flux_in, lstm_model, PATH_R, BadWaveMask=None, num_forward_pass=64, FAKE_MAPE_ERROR=0.2):
         # ** NOTE: this function only support a single spectrum as input.
 
         # ** verify inputs (standard wavelength and normalized flux)
@@ -24,7 +24,9 @@ class FitSingleSpecPhase:
                                                    phases_out=np.array([phase_hypo]), lstm_model=lstm_model, \
                                                    num_forward_pass=num_forward_pass)
             Flstm = PredSpecDict[phase_hypo]['flux']
-            mape = 100.0*np.mean(np.abs((Flux_in-Flstm)/np.clip(np.abs(Flux_in), a_min=1e-7, a_max=None)), axis=-1)
+            ape = 100.0*np.abs((Flux_in-Flstm)/np.clip(np.abs(Flux_in), a_min=1e-7, a_max=None))
+            if BadWaveMask is None: mape = np.mean(ape)    # MAPE over all wavelength
+            else: mape = np.mean(ape[~BadWaveMask])        # MAPE over valid wavelength
             return mape
         
         AutoDICT = {}
