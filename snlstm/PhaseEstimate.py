@@ -80,7 +80,7 @@ class FitSingleSpecPhase:
 
 class FitDoubleSpecPhase:
     @staticmethod
-    def FSSP(Wave_in1, Flux_in1, Wave_in2, Flux_in2, delta_phase, lstm_model, PATH_R, \
+    def FDSP(Wave_in1, Flux_in1, Wave_in2, Flux_in2, delta_phase, lstm_model, PATH_R, \
         BadWaveMask_in1=None, BadWaveMask_in2=None, num_forward_pass=64, FAKE_MAPE_ERROR=0.2):
         # **** this function support a pair of phase-unknown spectra as input (with certain delta phase) **** #
 
