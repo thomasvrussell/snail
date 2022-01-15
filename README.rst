@@ -4,7 +4,7 @@ SuperNova Artificial Inference by Lstm neural networks (SNAIL)
 Package Description
 -------------------
 
-The difficulties in acquiring spectroscopic data have been a major challenge for supernova surveys. snail is developed to provide a data-driven solution. Based on an observation dataset including 3091 spectra from 361 individual SNe Ia, we trained LSTM neural networks to learn from the spectroscopic time-series data of type Ia supernovae. The model enables the construction of spectral sequences from spectroscopic observations with limited time coverage.
+The difficulties in acquiring spectroscopic data have been a major challenge for supernova surveys. SNAIL is developed to provide a data-driven solution. Based on an observation dataset including 3091 spectra from 361 individual SNe Ia, we trained LSTM neural networks to learn from the spectroscopic time-series data of type Ia supernovae. The model enables the construction of spectral sequences from spectroscopic observations with limited time coverage.
 
 This repository is associated to the paper "*Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*".
 
@@ -17,7 +17,7 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
 
 Installation
 -----------
-One can install any desired version of snail from Github `<https://github.com/thomasvrussell/snail>`_: ::
+One can install any desired version of SNAIL from Github `<https://github.com/thomasvrussell/snail>`_: ::
 
     python setup.py install
 
@@ -40,7 +40,7 @@ Additional dependencies
 Download archival datasets
 -----------
 
-snail allows users to access to the following archival datasets 
+SNAIL allows users to access to the following archival datasets 
 
 .. [#] **A spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia, largely contributed from CfA (Blondin et al. 2012), BSNIP (Silverman et al. 2012), CSP (Folatelli et al. 2013) and Supernova Polarimetry Program (Wang & Wheeler 2008; Cikota et al. 2019a; Yang et al. 2020).
 
@@ -94,7 +94,7 @@ information:
 - OS platform.
 - Python version.
 - Tensorflow version.
-- Version of snail.
+- Version of SNAIL.
 
 Cite
 ------
