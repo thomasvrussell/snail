@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
-DESCRIPTION = "LSTM model for spectroscopic studies of type Ia supernovae"
+DESCRIPTION = "SuperNova Artificial Inference by Lstm neural networks (SNAIL)"
 LONG_DESCRIPTION = open('README.rst').read()
-NAME = "snlstm"
+NAME = "snail"
 AUTHOR = "Lei Hu"
 AUTHOR_EMAIL = "hulei@pmo.ac.cn"
 MAINTAINER = "Lei Hu"
 MAINTAINER_EMAIL = "hulei@pmo.ac.cn"
-DOWNLOAD_URL = 'https://github.com/thomasvrussell/snlstm'
+DOWNLOAD_URL = 'https://github.com/thomasvrussell/snail'
 LICENSE = 'MIT Licence'
-VERSION = '1.0.1'
+VERSION = '1.0.5'
 
 install_reqs = ['scipy>=1.5.2',
                 'astropy==4.0.2',

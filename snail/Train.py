@@ -9,7 +9,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam, RMSprop, Nadam
 from tensorflow.keras.layers import LSTM, Dense, TimeDistributed, Bidirectional
 
-class SNLSTM_Train:
+class SNAIL_Train:
     @staticmethod
     def SLT(XDATA_train, YDATA_train, WEIGHT_train):
 

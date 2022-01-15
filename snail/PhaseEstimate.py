@@ -1,7 +1,7 @@
 import numpy as np
-from snlstm.Predict import SNLSTM_Predict_Deep
-from snlstm.utils.SpecFPCA import FPCA_Parameterize
-from snlstm.utils.GPLightCurve import GP_Interpolator
+from snail.Predict import SNLSTM_Predict_Deep
+from snail.utils.SpecFPCA import FPCA_Parameterize
+from snail.utils.GPLightCurve import GP_Interpolator
 
 class FitSingleSpecPhase:
     @staticmethod

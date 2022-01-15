@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.interpolate import interp1d
-from snlstm.utils.SpecFPCA import FPCA_Parameterize, FPCA_Reconstruct
+from snail.utils.SpecFPCA import FPCA_Parameterize, FPCA_Reconstruct
 
-class SNLSTM_Predict_Deep:
+class SNAIL_Predict_Deep:
     @staticmethod
     def SPD(FPCA_PARAM_o, phase_o, FPCA_PARAM_t, phase_t, phases_out, lstm_model, num_forward_pass=64):
 
@@ -56,7 +56,7 @@ class SNLSTM_Predict_Deep:
 
         return PredSpecDict
 
-class SNLSTM_Predict:
+class SNAIL_Predict:
     @staticmethod
     def SLP(Wave_in1, Flux_in1, phase_in1, Wave_in2, Flux_in2, phase_in2, \
         phases_out, lstm_model, PATH_R, num_forward_pass=64):
@@ -79,7 +79,7 @@ class SNLSTM_Predict:
         else: FPCA_PARAM_t = FPCA_PARAM_o.copy()
 
         # ** predict
-        PredSpecDict = SNLSTM_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_in1, \
+        PredSpecDict = SNAIL_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_in1, \
                                                FPCA_PARAM_t=FPCA_PARAM_t, phase_t=phase_in2, \
                                                phases_out=phases_out, lstm_model=lstm_model, \
                                                num_forward_pass=num_forward_pass)

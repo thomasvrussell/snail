@@ -3,8 +3,8 @@ import numpy as np
 from scipy.signal import savgol_filter
 from scipy.optimize import least_squares
 from scipy.interpolate import interp1d, splrep, splev
-from snlstm.utils.SpecGSmooth import AutoGSmooth
-from snlstm.utils.SyntheticPhot import SynPhot, Calculate_BmVoffset
+from snail.utils.SpecGSmooth import AutoGSmooth
+from snail.utils.SyntheticPhot import SynPhot, Calculate_BmVoffset
 
 class HomogenizeSpec:
     @staticmethod
