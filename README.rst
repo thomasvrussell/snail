@@ -1,6 +1,7 @@
+SuperNova Artificial Inference by Lstm neural networks (SNAIL)
+
 Package Description
 -------------------
-# MIRaGe = Multi Instrument Ramp Generator
 
 The difficulties in acquiring spectroscopic data have been a major challenge for supernova surveys. snlstm is developed to provide a data-driven solution. Based on an observation dataset including 3091 spectra from 361 individual SNe Ia, we trained LSTM neural networks to learn from the spectroscopic time-series data of type Ia supernovae. The model enables the construction of spectral sequences from spectroscopic observations with very limited time coverage. 
 
