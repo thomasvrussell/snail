@@ -1,9 +1,9 @@
-SuperNova Artificial Inference by Lstm neural networks (SNAIL)
+: SuperNova Artificial Inference by Lstm neural networks (SNAIL)
 
 Package Description
 -------------------
 
-The difficulties in acquiring spectroscopic data have been a major challenge for supernova surveys. snlstm is developed to provide a data-driven solution. Based on an observation dataset including 3091 spectra from 361 individual SNe Ia, we trained LSTM neural networks to learn from the spectroscopic time-series data of type Ia supernovae. The model enables the construction of spectral sequences from spectroscopic observations with very limited time coverage. 
+The difficulties in acquiring spectroscopic data have been a major challenge for supernova surveys. snail is developed to provide a data-driven solution. Based on an observation dataset including 3091 spectra from 361 individual SNe Ia, we trained LSTM neural networks to learn from the spectroscopic time-series data of type Ia supernovae. The model enables the construction of spectral sequences from spectroscopic observations with limited time coverage.
 
 This repository is associated to the paper "*Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2021, ApJ, under review)*".
 
@@ -16,7 +16,7 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
 
 Installation
 -----------
-One can install any desired version of snlstm from Github `<https://github.com/thomasvrussell/snaps>`_: ::
+One can install any desired version of snail from Github `<https://github.com/thomasvrussell/snail>`_: ::
 
     python setup.py install
 
@@ -39,7 +39,7 @@ Additional dependencies
 Download archival datasets
 -----------
 
-snlstm allows users to access to the following archival datasets 
+snail allows users to access to the following archival datasets 
 
 .. [#] **A spectral-observation dataset** : it is comprised of 3091 observed spectra from 361 SNe Ia, largely contributed from CfA (Blondin et al. 2012), BSNIP (Silverman et al. 2012), CSP (Folatelli et al. 2013) and Supernova Polarimetry Program (Wang & Wheeler 2008; Cikota et al. 2019a; Yang et al. 2020).
 
@@ -54,15 +54,15 @@ Quick start guide
 
 We prepared several jupyter notebooks as quick tutorials to use our package in a friendly way.
 
-.. [*] `1-Access_to_Archival_ObservationData.ipynb <https://github.com/thomasvrussell/snaps/blob/main/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_ : this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
+.. [*] `1-Access_to_Archival_ObservationData.ipynb <https://github.com/thomasvrussell/snail/blob/main/notebooks/1-Access_to_Archival_ObservationData.ipynb>`_ : this notebook is to show how to access to the **spectral-observation dataset** and **the auxiliary photometry dataset**.  
 
-.. [*] `2-Access_to_Archival_TemplateData.ipynb <https://github.com/thomasvrussell/snaps/blob/main/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_ : one can obtain the LSTM generated spectral time sequences in **the spectral-template dataset** following this notebook.
+.. [*] `2-Access_to_Archival_TemplateData.ipynb <https://github.com/thomasvrussell/snail/blob/main/notebooks/2-Access_to_Archival_TemplateData.ipynb>`_ : one can obtain the LSTM generated spectral time sequences in **the spectral-template dataset** following this notebook.
 
-.. [*] `3-SpecData_Process_Example.ipynb <https://github.com/thomasvrussell/snaps/blob/main/notebooks/3-SpecData_Process_Example.ipynb>`_ : the notebook demonstrates the pre-processing of the spectroscopic data described in our paper, including smooth, rebinning, lines removal and color calibration, etc.
+.. [*] `3-SpecData_Process_Example.ipynb <https://github.com/thomasvrussell/snail/blob/main/notebooks/3-SpecData_Process_Example.ipynb>`_ : the notebook demonstrates the pre-processing of the spectroscopic data described in our paper, including smooth, rebinning, lines removal and color calibration, etc.
 
-.. [*] `4-LSTM_Predictions_on_New_SN.ipynb <https://github.com/thomasvrussell/snaps/blob/main/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_ : the notebook provides a guide for users who want apply our LSTM model on very limited spectroscopic data of newly discovered SNe Ia. In this notebook, we use SN 2016coj, a well-observed SN Ia from the latest BSNIP data release, as an example.
+.. [*] `4-LSTM_Predictions_on_New_SN.ipynb <https://github.com/thomasvrussell/snail/blob/main/notebooks/4-LSTM_Predictions_on_New_SN.ipynb>`_ : the notebook provides a guide for users who want apply our LSTM model on very limited spectroscopic data of newly discovered SNe Ia. In this notebook, we use SN 2016coj, a well-observed SN Ia from the latest BSNIP data release, as an example.
 
-.. [*] `5-LSTM_Estimate_Spectral_Phase.ipynb <https://github.com/thomasvrussell/snaps/blob/main/notebooks/5-LSTM_Estimate_Spectral_Phase.ipynb>`_ : although our neural network is trained based on the spectra with phase information as prior knownlege, it is still possible to apply the model to the phase-unknown spectral data. The underlying idea is that using incorrect phase of input spectrum can degrade the predictive performance of our method, that is to say, we may find the best-fit phase of input spectrum (spectra) by minimizing the predictive error(s). This notebook is to show how to do the estimates on spectral phase via the lstm model. In the specific case of SN 2016coj in the notebook, the estimation errors are around 0.5 - 2.0d.
+.. [*] `5-LSTM_Estimate_Spectral_Phase.ipynb <https://github.com/thomasvrussell/snail/blob/main/notebooks/5-LSTM_Estimate_Spectral_Phase.ipynb>`_ : although our neural network is trained based on the spectra with phase information as prior knownlege, it is still possible to apply the model to the phase-unknown spectral data. The underlying idea is that using incorrect phase of input spectrum can degrade the predictive performance of our method, that is to say, we may find the best-fit phase of input spectrum (spectra) by minimizing the predictive error(s). This notebook is to show how to do the estimates on spectral phase via the lstm model. In the specific case of SN 2016coj in the notebook, the estimation errors are around 0.5 - 2.0d.
 
 Publications use our method
 -----------
@@ -84,16 +84,16 @@ TBD
 Development
 -----------
 The latest source code can be obtained from
-`<https://github.com/thomasvrussell/snaps>`_.
+`<https://github.com/thomasvrussell/snail>`_.
 
 When submitting bug reports or questions via the `issue tracker 
-<https://github.com/thomasvrussell/snaps/issues>`_, please include the following 
+<https://github.com/thomasvrussell/snail/issues>`_, please include the following 
 information:
 
 - OS platform.
 - Python version.
 - Tensorflow version.
-- Version of snlstm.
+- Version of snail.
 
 Cite
 ------
