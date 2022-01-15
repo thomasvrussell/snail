@@ -1,4 +1,4 @@
-: SuperNova Artificial Inference by Lstm neural networks (SNAIL)
+*SuperNova Artificial Inference by Lstm neural networks (SNAIL)
 
 Package Description
 -------------------
