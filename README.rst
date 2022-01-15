@@ -1,5 +1,5 @@
 SuperNova Artificial Inference by Lstm neural networks (SNAIL)
-======================
+=============================
 
 Package Description
 -------------------
@@ -73,7 +73,7 @@ Publications use our method
 Todo list
 -----------
 
-- Support spectral sequence with arbitrary timesteps as input. (current model only accepts spectral pair inputs.)
+- Support spectral sequence with arbitrary timesteps as input. (current model only accepts spectral pair as input.)
 
 - Support more flexible wavelength range for input spectra. (current model is trained on spectra with uniform wavelength range from 3800 to 7200 A.)
 
