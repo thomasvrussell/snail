@@ -1,4 +1,4 @@
-include snlstm/utils/helper/*.csv
-include snlstm/utils/helper/fpca_basis/*.csv
-include snlstm/utils/helper/fpca_basis/*.R
-include snlstm/utils/helper/transmission_curves/*.txt
+include snail/utils/helper/*.csv
+include snail/utils/helper/fpca_basis/*.csv
+include snail/utils/helper/fpca_basis/*.R
+include snail/utils/helper/transmission_curves/*.txt

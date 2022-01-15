@@ -1,5 +1,5 @@
 import numpy as np
-from snail.Predict import SNLSTM_Predict_Deep
+from snail.Predict import SNAIL_Predict_Deep
 from snail.utils.SpecFPCA import FPCA_Parameterize
 from snail.utils.GPLightCurve import GP_Interpolator
 
@@ -19,7 +19,7 @@ class FitSingleSpecPhase:
 
         # ** define auto-prediction function
         def auto_predict(phase_hypo):
-            PredSpecDict = SNLSTM_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM, phase_o=phase_hypo, \
+            PredSpecDict = SNAIL_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM, phase_o=phase_hypo, \
                                                    FPCA_PARAM_t=FPCA_PARAM, phase_t=phase_hypo, \
                                                    phases_out=np.array([phase_hypo]), lstm_model=lstm_model, \
                                                    num_forward_pass=num_forward_pass)
@@ -100,7 +100,7 @@ class FitDoubleSpecPhase:
         #    NOTE: In our convention, phase_hypo is the hypothesized phase of the first spectrum.
         def auto_predict(phase_hypo):
             phase_o, phase_t = phase_hypo, phase_hypo + delta_phase
-            PredSpecDict = SNLSTM_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_o, \
+            PredSpecDict = SNAIL_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_o, \
                                                 FPCA_PARAM_t=FPCA_PARAM_t, phase_t=phase_t, \
                                                 phases_out=np.array([phase_o, phase_t]), \
                                                 lstm_model=lstm_model, num_forward_pass=num_forward_pass)
