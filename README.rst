@@ -27,6 +27,10 @@ One can install any desired version of SNAIL from Github `<https://github.com/th
 
     python setup.py install
 
+Alternatively, one can choose pypi to install latest stable version of SNAIL :: 
+
+    pip install astro-snail
+
 Additional dependencies
 -----------
 
