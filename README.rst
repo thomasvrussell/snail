@@ -10,6 +10,12 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
 
 .. image:: https://zenodo.org/badge/doi/10.5281/zenodo.5637790.svg
     :target: https://doi.org/10.5281/zenodo.5637790
+.. image:: https://img.shields.io/pypi/v/astro-snail.svg
+    :target: https://pypi.python.org/pypi/astro-snail
+    :alt: Latest Version
+.. image:: https://img.shields.io/pypi/dm/astro-snail.svg
+    :target: https://pypi.python.org/pypi/astro-snail
+    :alt: Downloads
 .. image:: https://img.shields.io/badge/License-MIT-red.svg
     :target: https://opensource.org/licenses/MIT
 .. image:: https://img.shields.io/badge/python-3.7-green.svg
