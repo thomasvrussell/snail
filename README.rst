@@ -100,3 +100,5 @@ Cite
 ------
 
 *Spectroscopic Studies of Type Ia Supernovae Using LSTM Neural Networks (Hu et al. 2022, ApJ)*. 
+Arxiv link: `<https://arxiv.org/abs/2202.02498>`.
+DOI: TBD
