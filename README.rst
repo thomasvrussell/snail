@@ -31,7 +31,7 @@ Alternatively, one can also choose PyPI to install latest stable version of SNAI
 
     pip install astro-snail
 
-Note: to avoid package name duplicate in PyPI, we have to change PyPI package name to be astro-snail, but there is no differnce on package content and usage.
+Note: to avoid package name duplicate in PyPI, we have to change PyPI package name to be astro-snail, but there is no any differnce on package content or usage.
 
 Additional dependencies
 -----------
