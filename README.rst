@@ -31,7 +31,7 @@ Alternatively, one can also choose pypi to install latest stable version of SNAI
 
     pip install astro-snail
 
-* pypi package name
+*Note that the we have changed pypi package name to be `astro-snail'
 
 Additional dependencies
 -----------
