@@ -91,7 +91,9 @@ Todo list
 
 Notices from developers
 -----------
-- A new version based on PyTorch is upcoming! It will support spectral time-series with dynamic length as inputs!  (Lei, Mar 7, 2022)
+- SNAIL-v2 based on PyTorch is under development! It will support spectral time-series with dynamic length as inputs! (Lei, Mar 7, 2022)
+
+- SNAIL-v2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in SNIFS dataset, so we simply assume they are all new SNe (this will be corrected when SNIFS dataset becomes public).
 
 Common issues
 -----------
