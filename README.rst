@@ -89,11 +89,14 @@ Todo list
 
 - Support more flexible wavelength range for input spectra. (current model is trained on spectra with uniform wavelength range from 3800 to 7200 A.)
 
-Notices from developers
+Notices from developers (Lei, Updated on Mar 7, 2022)
 -----------
-- SNAIL-v2 based on PyTorch is under development! It will support spectral time-series with dynamic length as inputs! (Lei, Mar 7, 2022)
 
-- SNAIL-v2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in SNIFS dataset, so we simply assume they are all new SNe (this will be corrected when SNIFS dataset becomes public).
+- SNAIL-v2 based on PyTorch is under development! It will support spectral time-series with dynamic length as inputs! 
+
+- SNAIL-v2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in SNIFS dataset, so we simply assume they all are brand new SNe (this will be corrected when SNIFS dataset becomes public).
+
+- We would like to incoporate more pulic spectroscopy datasets into our training set. Users are encouaged to give any useful suggestions about this (email to us or via Github!).
 
 Common issues
 -----------
