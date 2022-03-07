@@ -89,7 +89,7 @@ Todo list
 
 - Support more flexible wavelength range for input spectra. (current model is trained on spectra with uniform wavelength range from 3800 to 7200 A.)
 
-Messages from developers
+Notices from developers
 -----------
 - A new version based on PyTorch is upcoming! It will support spectral time-series with dynamic length as inputs!  (Lei, Mar 7, 2022)
 
