@@ -94,9 +94,9 @@ Notices from developers (Lei, Updated on Mar 7, 2022)
 
 - SNAIL-v2 based on PyTorch is under development! It will support spectral time-series with dynamic length as inputs! 
 
-- SNAIL-v2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in SNIFS dataset, so we simply assume they all are brand new SNe. (this compromise will be corrected when the complete SNIFS dataset becomes public).
+- SNAIL-v2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in this SNIFS dataset, so we simply assume they all are brand new SNe. (the compromise will be corrected when the complete SNIFS dataset becomes public).
 
-- We would like to incoporate more pulic spectroscopy datasets into our training set. Users are encouaged to give any useful suggestions about this (just email to us or post on Github!).
+- We would like to incoporate more public spectroscopy datasets into our training set. Users are encouaged to give any useful suggestions about this (just email to us or post on Github!).
 
 Common issues
 -----------
