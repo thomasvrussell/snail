@@ -89,14 +89,16 @@ Todo list
 
 - Support more flexible wavelength range for input spectra. (current model is trained on spectra with uniform wavelength range from 3800 to 7200 A.)
 
-Notices from developers (Lei, Updated on Mar 7, 2022)
+What's new
 -----------
 
-- SNAIL-v2 based on PyTorch is under development! It will support spectral time-series with dynamic length as inputs! 
+- (1) SNAIL2 based on PyTorch is under development! It will support spectral time-series with dynamic length as inputs! [Lei, Mar 7, 2022]
 
-- SNAIL-v2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in this SNIFS dataset, so we simply assume they all are brand new SNe. (the compromise will be corrected when the complete SNIFS dataset becomes public).
+- (2) SNAIL2 will also include the SNIFS dataset used in SNEMO (Saunders+, 2018). Note that we do not know the real SN names in this SNIFS dataset, so we simply assume they all are brand new SNe. (the compromise will be corrected when the complete SNIFS dataset becomes public). [Lei, Mar 7, 2022]
 
-- We would like to incoporate more public spectroscopy datasets into our training set. Users are encouaged to give any useful suggestions about this (just email to us or post on Github!).
+- (3) We would like to incoporate more public spectroscopy datasets into our training set. Users are encouaged to give any useful suggestions about this (just email to us or post on Github!). [Lei, Mar 7, 2022]
+
+- (4) We already finished a beta version of SNAIL2 based on PyTorch! In the new version, we extended our spectral training set by incoporating the SNIFS dataset. In addition, we designed a new sample selection process for training LSTM model with input spectral time-series of dynamic lengths. Moreover, the way we correct the spectral color by photometry has been improved. With these modifications, SNAIL2 seems has a even better performance on predictive accuracy than the old versions. [Lei, Mar 11, 2022]
 
 Common issues
 -----------
