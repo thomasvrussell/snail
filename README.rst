@@ -98,7 +98,7 @@ What's new
 
 - We would like to incoporate more public spectroscopy datasets into our training set. Users are encouaged to give any useful suggestions about this (just email to us or post on Github!). [Lei, Mar 7, 2022]
 
-- We already finished a beta version of SNAIL2 based on PyTorch! In the new version, we extended our spectral training set by incoporating the SNIFS dataset. In addition, we designed a new sample selection process for training LSTM model with input spectral time-series of dynamic lengths. Moreover, the way we correct the spectral color by photometry has been improved. With these modifications, SNAIL2 seems has a even better performance on predictive accuracy than the old versions. [Lei, Mar 11, 2022]
+- We already finished a beta version of SNAIL2 based on PyTorch! In the new version, we extended our spectral training set by incoporating the SNIFS dataset. For training LSTM model on spectral time-series of dynamic lengths, we designed a new selection process to construct the training sample set. Moreover, the way we correct the spectral color by photometry has been improved. With these modifications, SNAIL2 seems has a even better performance on predictive accuracy than the old versions. [Lei, Mar 11, 2022]
 
 Common issues
 -----------
