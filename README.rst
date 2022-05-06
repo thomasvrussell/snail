@@ -126,4 +126,4 @@ Cite
 
 Arxiv link: `<https://arxiv.org/abs/2202.02498>`_.
 
-DOI: `<https://doi.org/10.3847/1538-4357/ac5c48>`_.
+Related DOI: `<https://doi.org/10.3847/1538-4357/ac5c48>`_.
