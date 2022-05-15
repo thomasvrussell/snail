@@ -15,8 +15,8 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
     :alt: Latest Version
 .. image:: https://img.shields.io/badge/License-MIT-red.svg
     :target: https://opensource.org/licenses/MIT
-.. image:: https://img.shields.io/badge/python-3.7-green.svg
-    :target: https://www.python.org/downloads/release/python-370/
+.. image:: https://img.shields.io/badge/python-3.6.6-green.svg
+    :target: https://www.python.org/downloads/release/python-366/
 
 Installation
 -----------
@@ -28,7 +28,9 @@ Alternatively, one can also choose PyPI to install latest stable version of SNAI
 
     pip install astro-snail
 
-Note: to avoid package name duplicate in PyPI, we have to change PyPI package name to be astro-snail, but there is no any differnce on package content or usage.
+Note: To avoid package name duplicate in PyPI, we have to change PyPI package name to be astro-snail, but there is no any differnce on package content or usage.
+
+Note: Given that the LSTM model provided in this repository was trained on a Python 3.6.6 enviornment with tensorflow (v1.14.0), I would like to recommend users to setup SNAIL in an enviornment (preferably, a separate enviornment) with Python 3.6.6!
 
 Additional dependencies
 -----------
@@ -42,9 +44,9 @@ Additional dependencies
 
     conda install -c anaconda tensorflow=1.14.0
 
-- `PYPHOT <https://github.com/mfouesneau/pyphot>`_ (optional) : pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the latest version from Github (pyphot 1.1) ::
+- `PYPHOT <https://github.com/mfouesneau/pyphot>`_ (optional) : pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the stable version 1.4.3 from PyPI ::
 
-    pip install git+https://github.com/mfouesneau/pyphot
+    pip install pyphot==1.4.3
 
 Download archival datasets
 -----------
