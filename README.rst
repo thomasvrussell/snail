@@ -15,8 +15,8 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
     :alt: Latest Version
 .. image:: https://img.shields.io/badge/License-MIT-red.svg
     :target: https://opensource.org/licenses/MIT
-.. image:: https://img.shields.io/badge/python-3.6.6-green.svg
-    :target: https://www.python.org/downloads/release/python-366/
+.. image:: https://img.shields.io/badge/python-3.6-green.svg
+    :target: https://www.python.org/downloads/release/python-360/
 
 Installation
 -----------
