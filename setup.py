@@ -9,7 +9,7 @@ MAINTAINER = "Lei Hu"
 MAINTAINER_EMAIL = "hulei@pmo.ac.cn"
 DOWNLOAD_URL = 'https://github.com/thomasvrussell/snail'
 LICENSE = 'MIT Licence'
-VERSION = '1.0.8'
+VERSION = '1.1.0'
 
 install_reqs = ['scipy>=1.5.2',
                 'astropy>=4.0.2',
