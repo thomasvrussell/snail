@@ -12,7 +12,7 @@ LICENSE = 'MIT Licence'
 VERSION = '1.0.8'
 
 install_reqs = ['scipy>=1.5.2',
-                'astropy==4.0.2',
+                'astropy>=4.0.2',
                 'scikit-learn>=0.23.2',
                 'packaging>=20.4',
                 'extinction==0.4.2']
