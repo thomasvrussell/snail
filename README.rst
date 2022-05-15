@@ -20,17 +20,21 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
 
 Installation
 -----------
+Create a separate Python enviornment (recommended) for SNAIL: ::
+
+    $ conda create -y --name env4snail python=3.6.6
+
 One can install any desired version of SNAIL from Github `<https://github.com/thomasvrussell/snail>`_: ::
 
-    python setup.py install
+    $ (env4snail): python setup.py install
 
 Alternatively, one can also choose PyPI to install latest stable version of SNAIL: ::
 
-    pip install astro-snail
+    $ (env4snail): pip install astro-snail
 
 Note: To avoid package name duplicate in PyPI, we have to change PyPI package name to be astro-snail, but there is no any differnce on package content or usage.
 
-Note: Given that the LSTM model provided in this repository was trained on a Python 3.6.6 enviornment with tensorflow (v1.14.0), I would like to recommend users to setup SNAIL in an enviornment (preferably, a separate enviornment) with Python 3.6.6!
+Note: Given that the LSTM model provided in this repository was trained on a Python 3.6.6 enviornment using tensorflow, here I recommend users to setup SNAIL in a separate enviornment with Python 3.6.6 so that the model can be loaded without any potential compatibility issues.
 
 Additional dependencies
 -----------
@@ -40,13 +44,13 @@ Additional dependencies
     $ yum install R
     R > install.packages("fpca")
 
-- `TensorFlow <https://github.com/tensorflow/tensorflow>`_ : tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential incompatiability issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
+- `TensorFlow <https://github.com/tensorflow/tensorflow>`_ : tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential compatibility issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
 
-    conda install -c anaconda tensorflow=1.14.0
+    $ conda install -n env4snail -c anaconda tensorflow=1.14.0
 
 - `PYPHOT <https://github.com/mfouesneau/pyphot>`_ (optional) : pyphot is a portable package to compute synthetic photometry of a spectrum with given filter. In our work, the tool was used to correct the continuum component of a supernova spectrum so that its synthetic photometry could be in line with the observed light curves. One may consider to install the package if such color calibration is necessary. We recommend users to install the stable version 1.4.3 from PyPI ::
 
-    pip install pyphot==1.4.3
+    $ (env4snail): pip install pyphot==1.4.3
 
 Download archival datasets
 -----------
