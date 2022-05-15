@@ -9,13 +9,13 @@ MAINTAINER = "Lei Hu"
 MAINTAINER_EMAIL = "hulei@pmo.ac.cn"
 DOWNLOAD_URL = 'https://github.com/thomasvrussell/snail'
 LICENSE = 'MIT Licence'
-VERSION = '1.0.7'
+VERSION = '1.0.8'
 
 install_reqs = ['scipy>=1.5.2',
                 'astropy==4.0.2',
                 'scikit-learn>=0.23.2',
                 'packaging>=20.4',
-                'extinction>=0.4.2']
+                'extinction==0.4.2']
 
 setup(name = NAME,
       version = VERSION,
@@ -37,7 +37,7 @@ setup(name = NAME,
         'Environment :: Console',
         'Intended Audience :: Science/Research',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.6.6',
         'Programming Language :: Python :: 3 :: Only',
         'Topic :: Scientific/Engineering :: Astronomy'],
      )
