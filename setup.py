@@ -37,7 +37,7 @@ setup(name = NAME,
         'Environment :: Console',
         'Intended Audience :: Science/Research',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.6.6',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3 :: Only',
         'Topic :: Scientific/Engineering :: Astronomy'],
      )
