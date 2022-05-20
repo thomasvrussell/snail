@@ -15,13 +15,12 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
     :alt: Latest Version
 .. image:: https://static.pepy.tech/personalized-badge/astro-snail?period=total&units=international_system&left_color=grey&right_color=red&left_text=Downloads
     :target: https://pepy.tech/project/astro-snail
-.. image:: https://static.pepy.tech/personalized-badge/astro-snail?period=month&units=international_system&left_color=grey&right_color=red&left_text=Downloads/month
+.. image:: https://static.pepy.tech/personalized-badge/astro-snail?period=month&units=international_system&left_color=grey&right_color=orange&left_text=Downloads/month
     :target: https://pepy.tech/project/astro-snail
 .. image:: https://img.shields.io/badge/python-3.6-green.svg
     :target: https://www.python.org/downloads/release/python-360/
 .. image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :target: https://opensource.org/licenses/MIT
-
 
 Installation
 -----------
