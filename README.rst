@@ -19,7 +19,7 @@ This repository is associated to the paper "*Spectroscopic Studies of Type Ia Su
     :target: https://pepy.tech/project/astro-snail
 .. image:: https://img.shields.io/badge/python-3.6-green.svg
     :target: https://www.python.org/downloads/release/python-360/
-.. image:: https://img.shields.io/badge/License-MIT-black.svg
+.. image:: https://img.shields.io/badge/License-MIT-blue.svg
     :target: https://opensource.org/licenses/MIT
 
 Installation
