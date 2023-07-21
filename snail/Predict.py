@@ -1,10 +1,15 @@
 import numpy as np
 from scipy.interpolate import interp1d
 from snail.utils.SpecFPCA import FPCA_Parameterize, FPCA_Reconstruct
+# version: Mar 18, 2023
+
+__author__ = "Lei Hu <hulei@pmo.ac.cn>"
+__version__ = "v1.1.3"
 
 class SNAIL_Predict_Deep:
     @staticmethod
-    def SPD(FPCA_PARAM_o, phase_o, FPCA_PARAM_t, phase_t, phases_out, lstm_model, num_forward_pass=64):
+    def SPD(FPCA_PARAM_o, phase_o, FPCA_PARAM_t, phase_t, phases_out, lstm_model, \
+        num_forward_pass=64, return_all_forward_pass=False):
 
         RCut0, RCut1 = 3800, 7200
         WAVE = np.arange(RCut0, RCut1, 2)
@@ -54,12 +59,16 @@ class SNAIL_Predict_Deep:
                                      'flux': ESurface[idx], \
                                      'fluxerr': np.sqrt(VSurface[idx])}
 
-        return PredSpecDict
+        if return_all_forward_pass:
+            return PredSpecDict, SurfacePile
+        else:
+            return PredSpecDict
 
 class SNAIL_Predict:
     @staticmethod
     def SLP(Wave_in1, Flux_in1, phase_in1, Wave_in2, Flux_in2, phase_in2, \
-        phases_out, lstm_model, PATH_R, num_forward_pass=64):
+        phases_out, lstm_model, PATH_R, num_forward_pass=64, \
+        return_all_forward_pass=False):
 
         # ** verify inputs (standard wavelength and normalized flux)
         RCut0, RCut1 = 3800, 7200
@@ -79,9 +88,8 @@ class SNAIL_Predict:
         else: FPCA_PARAM_t = FPCA_PARAM_o.copy()
 
         # ** predict
-        PredSpecDict = SNAIL_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_in1, \
-                                               FPCA_PARAM_t=FPCA_PARAM_t, phase_t=phase_in2, \
-                                               phases_out=phases_out, lstm_model=lstm_model, \
-                                               num_forward_pass=num_forward_pass)
-        
-        return PredSpecDict
+        _res = SNAIL_Predict_Deep.SPD(FPCA_PARAM_o=FPCA_PARAM_o, phase_o=phase_in1, \
+            FPCA_PARAM_t=FPCA_PARAM_t, phase_t=phase_in2, phases_out=phases_out, lstm_model=lstm_model, \
+            num_forward_pass=num_forward_pass, return_all_forward_pass=return_all_forward_pass)
+    
+        return _res
