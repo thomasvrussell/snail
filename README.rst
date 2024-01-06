@@ -48,7 +48,7 @@ Additional dependencies
     $ yum install R
     R > install.packages("fpca")
 
-    An Update on 2024-01-06: I noticed that the Package `fpca` was removed from the CRAN repository, however, one can still install fpca from archival source file ::
+- An Update on 2024-01-06: I noticed that the Package `fpca` was removed from the CRAN repository, however, one can still install fpca from archival source file ::
 
     $ wget https://cran.r-project.org/src/contrib/Archive/fpca/fpca_0.2-1.tar.gz
     R > install.packages('your/path/to/fpca_0.2-1.tar.gz', repos=NULL, type='source')
