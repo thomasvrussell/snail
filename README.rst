@@ -48,6 +48,11 @@ Additional dependencies
     $ yum install R
     R > install.packages("fpca")
 
+An Update on 2024-01-06: I noticed that the Package `fpca` was removed from the CRAN repository, however, one can still install fpca from archival source file ::
+
+    $ wget https://cran.r-project.org/src/contrib/Archive/fpca/fpca_0.2-1.tar.gz
+    R > install.packages('your/path/to/fpca_0.2-1.tar.gz', repos=NULL, type='source')
+
 - `TensorFlow <https://github.com/tensorflow/tensorflow>`_ : tensorflow is required to load a given LSTM model and make the spectral predictions. The default LSTM model in this repository is trained on an enviornment with tensorflow 1.14.0. To avoid potential compatibility issues casued by different tensorflow versions, we recommend users to install the same version via Conda ::
 
     $ conda install -n env4snail -c anaconda tensorflow=1.14.0
