@@ -8,7 +8,7 @@ AUTHOR_EMAIL = "hulei@pmo.ac.cn"
 MAINTAINER = "Lei Hu"
 MAINTAINER_EMAIL = "hulei@pmo.ac.cn"
 DOWNLOAD_URL = 'https://github.com/thomasvrussell/snail'
-LICENSE = 'MIT Licence'
+LICENSE = 'MIT License'
 VERSION = '1.1.4'
 
 install_reqs = ['scipy>=1.5.2',
@@ -16,7 +16,8 @@ install_reqs = ['scipy>=1.5.2',
                 'scikit-learn>=0.23.2',
                 'packaging>=20.4',
                 'extinction>=0.4.2',
-                'h5py<=2.10.0']
+                'h5py', # <=2.10.0
+                'Cython']  
 
 setup(name = NAME,
       version = VERSION,
