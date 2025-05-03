@@ -1,0 +1,48 @@
+# This is a simple example as a quick guide for installing SNAIL on your MacOS laptop
+
+####### STEP 1: Python Env
+# create a new Python Env
+micromamba create -n epy310 python==3.10
+
+# install tensorflow 
+micromamba install -n epy310 tensorflow
+
+# install snail
+git clone https://github.com/thomasvrussell/snail.git
+cd snail
+
+micromamba activate epy310
+(epy310) : pip install numpy==1.23.5 astropy==6.1.2
+(epy310) : pip install .
+
+# install Jupyter notebook
+micromamba install -y -n epy310 -c conda-forge ipykernel
+
+# create the Jupyter kernel for this env, then you can use this Env in Jupyter
+micromamba activate epy310
+(py311): python -m ipykernel install --user --name epy310 --display-name “EPy310"
+
+####### STEP 2: Install R and fpca package
+# install R programing
+R programing: install R on mac: https://cran.r-project.org/bin/macosx/
+download from this link for MacOS: https://cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.5.0-arm64.pkg
+install R on Mac by running .pkg file
+
+# install fpac package in R programing
+# warning: please replace the following "/your/path/to/“ to your PATH!
+
+$ wget https://cran.r-project.org/src/contrib/Archive/fpca/fpca_0.2-1.tar.gz
+$ R
+R > install.packages("sm")
+R > install.packages('/your/path/to/fpca_0.2-1.tar.gz', repos=NULL, type='source’)
+
+####### STEP 3: Download SNAIL spectral dataset
+# download snail spectral dataset  
+visit https://zenodo.org/records/5637790
+click download of the following files: (do not click download all, otherwise only one will be downloaded)
+archival_phot_observations.tar.gz 133.9 kB
+archival_spec_observations.tar.gz 200.3 MB
+archival_spec_templates.tar.gz    1.8 GB
+ObjectMaster.csv                  37.2 kB
+SpecMaster.csv                    379.8 kB
+
